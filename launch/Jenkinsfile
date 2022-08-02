@@ -1,0 +1,10 @@
+pipeline {
+    agent any
+    stages {
+        stage ('Run docker') {   
+            steps {
+                sh 'docker run -d --rm -p 8282:8282 --name flask flask'
+            }
+        }
+    }
+}
