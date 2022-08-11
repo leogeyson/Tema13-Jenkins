@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+    stages {
+        stage ('git push'){
+            steps {
+                git branch: 'main', url: 'https://github.com/leogeyson/Tema13-Jenkins'
+            }   
+        }
+
+        stage ('build') {
+            steps {
+                sh 'docker build -t flask .'
+            }
+        }
+    }
+}
